@@ -11,6 +11,9 @@ function App() {
   console.log("puppyList: ", puppyList);
   // adding FeatPupID
   const [featPupId, setFeatPupId] = useState(null);
+  // adding featuredPop arry
+  const featuredPup = puppies.find((pup)=> pup.id === featPupId)
+  console.log('FeaturePup:', featuredPup)
   return (
     <>
       <div className="App">
@@ -22,7 +25,15 @@ function App() {
             </p>
           );
         })} 
-       {featPupId && <p>Featured Puppy ID: {featPupId}</p>}
+       {featPupId && (
+        <div>
+          <h2>{featuredPup.name}</h2>
+          <ul>
+            <li>Age: {featuredPup.age}</li>
+            <li>Email: {featuredPup.email}</li>
+          </ul>
+        </div>
+           )}
       </div>
     </>
   );
